@@ -13,6 +13,7 @@
 		C0496C262454B437008E1B1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0496C242454B437008E1B1D /* Main.storyboard */; };
 		C0496C282454B438008E1B1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0496C272454B438008E1B1D /* Assets.xcassets */; };
 		C0496C2B2454B438008E1B1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0496C292454B438008E1B1D /* LaunchScreen.storyboard */; };
+		C0496C332454E0B6008E1B1D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0496C322454E0B6008E1B1D /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C0496C272454B438008E1B1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0496C2A2454B438008E1B1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0496C2C2454B438008E1B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0496C322454E0B6008E1B1D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				C0496C202454B437008E1B1D /* SceneDelegate.swift */,
 				C0496C222454B437008E1B1D /* ViewController.swift */,
 				C0496C242454B437008E1B1D /* Main.storyboard */,
+				C0496C322454E0B6008E1B1D /* Game.swift */,
 				C0496C272454B438008E1B1D /* Assets.xcassets */,
 				C0496C292454B438008E1B1D /* LaunchScreen.storyboard */,
 				C0496C2C2454B438008E1B1D /* Info.plist */,
@@ -141,6 +144,7 @@
 				C0496C232454B437008E1B1D /* ViewController.swift in Sources */,
 				C0496C1F2454B437008E1B1D /* AppDelegate.swift in Sources */,
 				C0496C212454B437008E1B1D /* SceneDelegate.swift in Sources */,
+				C0496C332454E0B6008E1B1D /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +298,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmaapp.GuideProject2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -312,7 +316,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmaapp.GuideProject2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
