@@ -10,6 +10,7 @@ import UIKit
 
 class UITodoTableViewCell: UITableViewCell {
 
+    @IBOutlet var checkImage: UIImageView!
     @IBOutlet var titleLabe: UILabel!
     
 }

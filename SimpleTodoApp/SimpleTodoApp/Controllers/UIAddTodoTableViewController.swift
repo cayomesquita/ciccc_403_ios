@@ -19,11 +19,9 @@ class UIAddTodoTableViewController: UITableViewController {
     }
 
     @IBAction func onValueChanged(_ sender: UITextField) {
-        print("onValueChanged")
         setupAddButtonState()
     }
     @IBAction func titleOnEditingChanged(_ sender: UITextField) {
-        print("titleValueChanged")
         setupAddButtonState()
     }
     

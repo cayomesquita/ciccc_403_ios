@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Todo {
+class Todo {
     var title: String
     var priority: Priority = .medium
     var isDone: Bool = false

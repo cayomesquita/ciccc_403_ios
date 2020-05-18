@@ -10,22 +10,25 @@
         <scene sceneID="wTD-XF-aHP">
             <objects>
                 <tableViewController id="5KT-AJ-Kst" customClass="UITodoTableViewController" customModule="SimpleTodoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SZl-ez-VTy">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SZl-ez-VTy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoCell" id="cfE-MI-qdv" customClass="UITodoTableViewCell" customModule="SimpleTodoApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="todoCell" id="cfE-MI-qdv" customClass="UITodoTableViewCell" customModule="SimpleTodoApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="42.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cfE-MI-qdv" id="e2z-V1-Qgx">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="42.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="42.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8YV-z1-gHm">
-                                            <rect key="frame" x="20" y="11" width="374" height="20.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8YV-z1-gHm">
+                                            <rect key="frame" x="20" y="11" width="355" height="20.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhu-kW-TwD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="253" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BHL-zy-upz">
+                                                    <rect key="frame" x="0.0" y="2" width="18.5" height="17"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhu-kW-TwD">
+                                                    <rect key="frame" x="28.5" y="0.0" width="326.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -41,6 +44,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="checkImage" destination="BHL-zy-upz" id="zag-to-QFd"/>
                                     <outlet property="titleLabe" destination="Qhu-kW-TwD" id="U45-d9-Xgg"/>
                                 </connections>
                             </tableViewCell>
@@ -51,21 +55,26 @@
                             <outlet property="delegate" destination="5KT-AJ-Kst" id="9bX-5y-bP4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="AeI-5v-KHJ">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="edit" id="czP-iB-ahm">
-                            <connections>
-                                <segue destination="CWE-ol-VXX" kind="unwind" identifier="cancelUnwindSegue" unwindAction="unwindToTodoTableViewFor:" id="y2L-ZD-h7i"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="8tb-Vc-NCl">
-                            <connections>
-                                <segue destination="moJ-dW-qzh" kind="presentation" id="RMM-PB-izx"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" id="fBs-n0-yD6">
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" systemItem="add" id="mi8-Fo-bkx">
+                                <connections>
+                                    <segue destination="moJ-dW-qzh" kind="presentation" id="7Xu-XP-CcB"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem enabled="NO" style="plain" systemItem="trash" id="2bM-vx-nxA">
+                                <connections>
+                                    <action selector="trashButtonTapped:" destination="5KT-AJ-Kst" id="nhf-fI-T1n"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="mi8-Fo-bkx" id="y7f-fv-U0n"/>
+                        <outlet property="deleteButton" destination="2bM-vx-nxA" id="zCq-pN-Ly2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTI-Br-E0C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="CWE-ol-VXX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1789.8550724637682" y="119.86607142857142"/>
         </scene>
@@ -171,4 +180,7 @@
             <point key="canvasLocation" x="2821.739130434783" y="-13.392857142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+    </resources>
 </document>
