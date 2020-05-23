@@ -12,6 +12,9 @@ class ViewController: UIViewController {
     let popSicleButton = UIButton.init(type: .custom)
     let ramenButton = UIButton.init(type: .custom)
     
+    let titleNavBar = UILabel.init()
+    var titleNavBarCenterYLayout: NSLayoutConstraint!
+    
     var stack: UIStackView!
     
     var tableView: UITableView!
@@ -75,6 +78,11 @@ class ViewController: UIViewController {
         
         self.navBar.addSubview(stack)
         
+        self.titleNavBar.translatesAutoresizingMaskIntoConstraints = false
+        self.titleNavBar.text = "SNACKS"
+        
+        self.navBar.addSubview(self.titleNavBar)
+        
         self.tableView = UITableView.init()
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.tableView.delegate = self
@@ -87,6 +95,8 @@ class ViewController: UIViewController {
     func setupLayout() -> Void {
         
         let heightImage = CGFloat.init(100)
+        titleNavBarCenterYLayout = self.titleNavBar.centerYAnchor.constraint(equalTo: navBar.centerYAnchor)
+//        titleNavBarCenterYLayout.identifier = "titleNavBarCenterYLayout"
         
         NSLayoutConstraint.activate([
             //navbar
@@ -99,6 +109,8 @@ class ViewController: UIViewController {
             self.popTartsButton.heightAnchor.constraint(lessThanOrEqualToConstant: heightImage),
             self.popSicleButton.heightAnchor.constraint(lessThanOrEqualToConstant: heightImage),
             self.ramenButton.heightAnchor.constraint(lessThanOrEqualToConstant: heightImage),
+            self.titleNavBar.centerXAnchor.constraint(equalTo: navBar.centerXAnchor),
+            titleNavBarCenterYLayout,
             
             // tableView
             self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -130,6 +142,7 @@ class ViewController: UIViewController {
     @IBAction func plusButtonTapped(_ sender: UIButton) {
         state = (state == .opened) ? .closed : .opened
         self.navBarHeight.constant = self.isOpen ? CGFloat(endHeight) : CGFloat(initialHeight)
+        
         UIView.animate(withDuration: 1.5,
                        delay: 0,
                        usingSpringWithDamping: 0.5, initialSpringVelocity: 1,
@@ -138,6 +151,9 @@ class ViewController: UIViewController {
                         self.view.layoutIfNeeded()
                         self.plusButton.transform = CGAffineTransform.init(rotationAngle: self.isOpen ? .pi/4 : 0)
                         self.stack.isHidden = !self.isOpen
+                        self.titleNavBarCenterYLayout.constant = self.isOpen ? -40 : 0
+                        self.titleNavBar.text = self.isOpen ? "ADD SNACK" : "SNACKS"
+//                        self.titleNavBar.constraints.first { $0.identifier == "titleCenterYLayout" }?.constant = self.isOpen ? -40 : 0
         }
         )
         
